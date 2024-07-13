@@ -1,11 +1,11 @@
-package estoqueCompras;
+package estoqueIngredientes;
 
-public class Yeast implements Product{
+public class Milk implements Product{
     private int quantity;
     private float price;
     private String name;
 
-    public Yeast(int quantity, float price, String name) {
+    public Milk(int quantity, float price, String name) {
         this.quantity = quantity;
         this.price = price;
         this.name = name;
@@ -45,4 +45,12 @@ public class Yeast implements Product{
         return this.price * this.quantity;
     }
 
+    @Override
+    public String toString() {
+        return "Milk{" +
+                "quantity=" + quantity +
+                ", price=" + price +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
