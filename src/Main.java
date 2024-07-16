@@ -22,9 +22,9 @@ public class Main {
         //Observer obs = new StorageObserver();
         //manager.attach(obs);
 
-        //manager.removeProducts(0);
-        //manager.removeProducts(1);
-        //manager.listProducts();
+        usuario.removerProduto(0);
+        usuario.removerProduto(1);
+        usuario.listarProdutos();
 
     }
 }
