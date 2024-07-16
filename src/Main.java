@@ -5,6 +5,7 @@ import estoqueIngredientes.StorageObserver;
 
 public class Main {
     public static void main(String[] args) {
+
         ProductManager manager = ProductManager.getInstance();
         ProductFactory factory = new ProductFactory();
         manager.addProducts(factory.createMilk(10, 20.0f, "blablabla"));
