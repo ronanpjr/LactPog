@@ -22,7 +22,7 @@ public class LoggedUser extends User{
         super(id, username, password, email);
     }
 
-    public void adicionarProduto(String tipo, String nome, int quantity, float price){
+    public void addProduct(String tipo, String nome, int quantity, float price){
         switch (tipo){
             case "Milk":
                 manager.addProducts(factory.createMilk(quantity, price, nome));
@@ -34,11 +34,11 @@ public class LoggedUser extends User{
                 manager.addProducts(factory.createYeast(quantity, price, nome));
         }
     }
-    public void removerProduto(int index){
+    public void removeProduct(int index){
         manager.removeProducts(index);
     }
 
-    public void listarProdutos(){
+    public void listProducts(){
         manager.listProducts();
         float total = 0;
         for(Product product: manager.getListRaw()){

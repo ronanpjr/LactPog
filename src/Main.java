@@ -15,16 +15,17 @@ public class Main {
         LoggedUser usuario = (new User(UUID.randomUUID(), "admin", "admin", "admin@admin")).login();
         //Produtos que não são queijo
 
-        usuario.adicionarProduto("Milk", "Mococa", 10, 20.0f);
-        usuario.adicionarProduto("Packaging", "Cheese Packaging", 100, 500.0f);
-        usuario.adicionarProduto("Yeast", "Fermento", 500, 5.0f);
+        usuario.addProduct("Milk", "Mococa", 10, 20.0f);
+        usuario.addProduct("Packaging", "Cheese Packaging", 100, 500.0f);
+        usuario.addProduct("Yeast", "Fermento", 500, 5.0f);
 
         //Observer obs = new StorageObserver();
         //manager.attach(obs);
 
-        usuario.removerProduto(0);
-        usuario.removerProduto(1);
-        usuario.listarProdutos();
+        usuario.removeProduct(0);
+        usuario.removeProduct(1);
+        usuario.listProducts();
+
 
     }
 }
