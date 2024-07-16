@@ -1,5 +1,10 @@
 package estoqueIngredientes;
 
+import Entities.Milk;
+import Entities.Packaging;
+import Entities.Product;
+import Entities.Yeast;
+
 public class ProductFactory {
 
     public Product createMilk(int quantity, float price, String name) {

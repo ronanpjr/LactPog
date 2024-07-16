@@ -1,4 +1,4 @@
-package estoqueIngredientes;
+package Entities;
 
 public interface Product {
      int quantity = 0;

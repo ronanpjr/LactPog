@@ -1,4 +1,4 @@
-package estoqueIngredientes;
+package Entities;
 
 public class Yeast implements Product{
     private int quantity;

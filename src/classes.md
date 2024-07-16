@@ -12,7 +12,7 @@ Produtos que existirão no Estoque de Vendas:
     > Queijos (btw)
 
 
-Funcionalidades Básicas do Modulo de Compras:
+Funcionalidades Básicas do Modulo de Ingredientes:
     > Adicionar Estoque dos insumos adquiridos;
     > Retornar relatório dos gastos com matéria prima;
      

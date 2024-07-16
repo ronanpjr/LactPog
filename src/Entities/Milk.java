@@ -1,4 +1,4 @@
-package estoqueIngredientes;
+package Entities;
 
 public class Milk implements Product{
     private int quantity;
