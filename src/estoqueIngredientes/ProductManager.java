@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ProductManager extends Subject {
 
     private static ProductManager instance = null;
-    private ArrayList<Product> ProductList;
+    private final ArrayList<Product> ProductList;
 
     private ProductManager() {
         ProductList = new ArrayList<Product>();
@@ -37,6 +37,8 @@ public class ProductManager extends Subject {
         }
     }
 
-
+    public ArrayList<Product> getListRaw(){
+        return ProductList;
+    }
 
 }

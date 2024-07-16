@@ -1,22 +1,30 @@
+import Authentication.LoggedUser;
 import estoqueIngredientes.Observer;
 import estoqueIngredientes.ProductFactory;
 import estoqueIngredientes.ProductManager;
 import estoqueIngredientes.StorageObserver;
-
+import Authentication.User;
+import java.util.UUID;
 public class Main {
     public static void main(String[] args) {
-        ProductManager manager = ProductManager.getInstance();
-        ProductFactory factory = new ProductFactory();
-        manager.addProducts(factory.createMilk(10, 20.0f, "blablabla"));
-        manager.addProducts(factory.createPackaging(100, 500.0f, "cheese packaging"));
-        manager.addProducts(factory.createYeast(984938, 99999.999f, "fermento"));
 
-        Observer obs = new StorageObserver();
-        manager.attach(obs);
+        //User user = new User(UUID.randomUUID(), "admin", "admin", "admin@admin");
+        //LoggedUser usuario = user.login();
 
-        manager.removeProducts(0);
-        manager.removeProducts(1);
-        manager.listProducts();
+        //Fachada Usuário
+        LoggedUser usuario = (new User(UUID.randomUUID(), "admin", "admin", "admin@admin")).login();
+        //Produtos que não são queijo
+
+        usuario.adicionarProduto("Milk", "Mococa", 10, 20.0f);
+        usuario.adicionarProduto("Packaging", "Cheese Packaging", 100, 500.0f);
+        usuario.adicionarProduto("Yeast", "Fermento", 500, 5.0f);
+
+        //Observer obs = new StorageObserver();
+        //manager.attach(obs);
+
+        usuario.removerProduto(0);
+        usuario.removerProduto(1);
+        usuario.listarProdutos();
 
     }
 }

@@ -47,4 +47,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public LoggedUser login(){
+        if(this.username.equals("admin") && this.password.equals("admin") && this.email.equals("admin@admin")){
+            return new LoggedUser(this.id, this.username, this.password, this.email);
+        }
+        else{
+            System.out.println("usuário Comum");
+            return null;
+        }
+    }
 }
