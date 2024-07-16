@@ -4,7 +4,17 @@ import java.util.Date;
 
 public class Cheese implements Product {
 
+    private int quantity;
+    private float price;
+    private String name;
     private Date validade;
+
+    public Cheese(int quantity, float price, String name, Date validade) {
+        this.quantity = quantity;
+        this.price = price;
+        this.name = name;
+        this.validade = validade;
+    }
 
     @Override
     public void setQuantity(int quantity) {
@@ -40,4 +50,5 @@ public class Cheese implements Product {
     public float getTotal() {
         return 0;
     }
+
 }
