@@ -1,31 +1,32 @@
-import Authentication.LoggedUser;
-import estoqueIngredientes.Observer;
-import estoqueIngredientes.ProductFactory;
-import estoqueIngredientes.ProductManager;
-import estoqueIngredientes.StorageObserver;
+import Authentication.Facade;
 import Authentication.User;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main() {
+        User usuariofalho = new User (UUID.randomUUID(), "notadmin",
+                "notadmin", "ulisflavio@gmail.com");
 
-        //User user = new User(UUID.randomUUID(), "admin", "admin", "admin@admin");
-        //LoggedUser usuario = user.login();
+        Facade teste = usuariofalho.login();
 
-        //Fachada Usuário
-        LoggedUser usuario = (new User(UUID.randomUUID(), "admin", "admin", "admin@admin")).login();
-        //Produtos que não são queijo
+        User usuario = new User(UUID.randomUUID(),
+                "admin", "admin", "felipekenji@ifood.com");
 
-        usuario.addProduct("Milk", "Mococa", 10, 20.0f);
-        usuario.addProduct("Packaging", "Cheese Packaging", 100, 500.0f);
-        usuario.addProduct("Yeast", "Fermento", 500, 5.0f);
+        //  Fachada é retornada pelo método login
+        Facade fachada = usuario.login();
 
-        //Observer obs = new StorageObserver();
-        //manager.attach(obs);
-
-        usuario.removeProduct(0);
-        usuario.removeProduct(1);
-        usuario.listProducts();
+        fachada.adicionarIngrediente("Milk", "Mococa", 10, 20.0f);
+        fachada.adicionarIngrediente("Packaging", "Cheese Packaging", 100, 500.0f);
+        fachada.adicionarIngrediente("Yeast", "Fermento", 500, 5.0f);
+        fachada.listarIngredientes();
+        fachada.removerIngrediente(0);
+        fachada.removerIngrediente(1);
 
 
+        fachada.adicionarQueijos(10, 44.0f, "Minas", new Date(2024, 07, 16));
+        fachada.listarQueijos();
     }
 }

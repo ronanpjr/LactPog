@@ -48,12 +48,12 @@ public class User {
         this.email = email;
     }
 
-    public LoggedUser login(){
-        if(this.username.equals("admin") && this.password.equals("admin") && this.email.equals("admin@admin")){
-            return new LoggedUser(this.id, this.username, this.password, this.email);
+    public Facade login(){
+        if(this.username.equals("admin") && this.password.equals("admin")){
+            return new Facade();
         }
         else{
-            System.out.println("usuário Comum");
+            System.out.println("falha ao logar");
             return null;
         }
     }
