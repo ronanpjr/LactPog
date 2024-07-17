@@ -28,5 +28,6 @@ public class Main {
 
         fachada.adicionarQueijos(10, 44.0f, "Minas", new Date(2024, 07, 16));
         fachada.listarQueijos();
+
     }
 }
