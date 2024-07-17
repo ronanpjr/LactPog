@@ -23,7 +23,6 @@ public class ProductManager extends Subject {
 
     public void addProducts(Product product) {
         ProductList.add(product);
-        if (ProductList.size() >= 2 ) notifyObservers();
     }
 
     public void removeProducts(int index) {

@@ -24,7 +24,7 @@ public class CheeseManager extends Subject {
 
     public void addCheese(Product cheese) {
         CheeseList.add(cheese);
-        if (CheeseList.size() >= 2 ) notifyObservers();
+
     }
 
     public void removeCheese(int index) {

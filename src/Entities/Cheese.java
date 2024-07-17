@@ -7,7 +7,7 @@ public class Cheese implements Product {
     private int quantity;
     private float price;
     private String name;
-    private Date validade;
+    private final Date validade;
 
     public Cheese(int quantity, float price, String name, Date validade) {
         this.quantity = quantity;
