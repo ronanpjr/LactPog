@@ -20,7 +20,7 @@ public class Main {
 
         fachada.adicionarIngrediente("Milk", "Mococa", 10, 20.0f);
         fachada.adicionarIngrediente("Packaging", "Cheese Packaging", 100, 500.0f);
-        fachada.adicionarIngrediente("Yeast", "Fermento", 500, 5.0f);
+        fachada.adicionarIngrediente("Milk", "Fermento", 500, 5.0f);
         fachada.listarIngredientes();
         fachada.removerIngrediente(0);
         fachada.removerIngrediente(1);
