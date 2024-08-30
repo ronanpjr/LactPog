@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Main {
-    public static void main() {
+    public static void main(String[] args) {
         User usuariofalho = new User (UUID.randomUUID(), "notadmin",
                 "notadmin", "ulisflavio@gmail.com");
 
