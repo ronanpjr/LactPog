@@ -6,12 +6,14 @@
             "type": "shell",
             "command": "javac",
             "args": [
-                "-cp",
                 "-d",
+                "bin",
                 "src/Authentication/*.java", // Compile o seu código Java
                 "src/Entities/*.java", // Compile o seu código Java
                 "src/estoqueIngredientes/*.java", // Compile o seu código Java
-                "src/estoqueQueijos/*.java" // Compile o seu código Java
+                "src/estoqueQueijos/*.java", // Compile o seu código Java
+                "src/Main.java"
+
             ],
             "group": {
                 "kind": "build",
@@ -25,7 +27,8 @@
             "command": "java",
             "args": [
                 "-cp",
-                "out.Main.class" // Nome da classe principal
+                "bin",
+                "Main" // Nome da classe principal
             ],
             "group": {
                 "kind": "build",
