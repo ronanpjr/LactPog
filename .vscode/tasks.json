@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-cp",
+                "-d",
+                "src/Authentication/*.java", // Compile o seu código Java
+                "src/Entities/*.java", // Compile o seu código Java
+                "src/estoqueIngredientes/*.java", // Compile o seu código Java
+                "src/estoqueQueijos/*.java" // Compile o seu código Java
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp",
+                "out.Main.class" // Nome da classe principal
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
