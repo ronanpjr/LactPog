@@ -48,13 +48,14 @@ public class User {
         this.email = email;
     }
 
-    public Facade login(){
+    public Facade login() throws Exception {
         if(this.username.equals("admin") && this.password.equals("admin")){
             return new Facade();
         }
         else{
-            System.out.println("falha ao logar");
-            return null;
+            throw new Exception("Erro: falha ao logar");
+            //System.out.println("Erro: falha ao logar");
+            //return null;
         }
     }
 }
