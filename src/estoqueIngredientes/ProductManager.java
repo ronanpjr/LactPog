@@ -2,15 +2,17 @@ package estoqueIngredientes;
 
 import Entities.Product;
 
+import java.nio.file.PathMatcher;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProductManager extends Subject {
 
     private static ProductManager instance = null;
-    private final ArrayList<Product> ProductList;
+    private final HashMap<String, Product> ProductHashMap;
 
     private ProductManager() {
-        ProductList = new ArrayList<Product>();
+        ProductHashMap = new HashMap<>();
     }
 
     public static synchronized ProductManager getInstance() {
@@ -22,22 +24,39 @@ public class ProductManager extends Subject {
 
 
     public void addProducts(Product product) {
-        ProductList.add(product);
+        if(ProductHashMap.containsKey(product.getName())) {
+            Product productAuxiliar = ProductHashMap.get(product.getName());
+            float oldTotalPrice = productAuxiliar.getTotal();
+            productAuxiliar.setQuantity(productAuxiliar.getQuantity() + product.getQuantity());
+            productAuxiliar.setPrice((oldTotalPrice + product.getTotal()) / productAuxiliar.getQuantity());
+        } else {
+            ProductHashMap.put(product.getName(), product);
+        }
     }
 
-    public void removeProducts(int index) {
-        ProductList.remove(index);
-        if (ProductList.size() < 2) notifyObservers();
+    public void removeProducts(String name, int quantity) {
+        if(ProductHashMap.containsKey(name)) {
+            Product productAuxiliar = ProductHashMap.get(name);
+            if(productAuxiliar.getQuantity() - quantity < 0){
+                notifyObservers(1);
+            }
+            else{
+                int newQuantity = productAuxiliar.getQuantity() - quantity;
+                if(newQuantity < 10) notifyObservers(0);
+                productAuxiliar.setQuantity(newQuantity);
+            }
+        }
     }
 
     public void listProducts() {
-        for (Product product: ProductList) {
+        for (HashMap.Entry<String, Product> entry : ProductHashMap.entrySet()) {
+            Product product = entry.getValue();
             System.out.println(product.toString());
         }
     }
 
-    public ArrayList<Product> getListRaw(){
-        return ProductList;
+    public HashMap<String, Product> getListRaw(){
+        return ProductHashMap;
     }
 
 }

@@ -14,12 +14,8 @@ public class Subject {
         observers.remove(o);
     }
 
-    public void notifyObservers() {
-        for(Observer o : observers) {
-
-            o.update();
-
-        }
+    public void notifyObservers(int index) {
+        observers.get(index).update();
     }
 
 

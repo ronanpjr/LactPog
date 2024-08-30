@@ -4,10 +4,12 @@ import Entities.Product;
 import estoqueIngredientes.ProductFactory;
 import estoqueIngredientes.ProductManager;
 import estoqueIngredientes.StorageObserver;
+import estoqueIngredientes.InsuficientStorageObserver;
 import estoqueIngredientes.Observer;
 import estoqueQueijos.*;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class Facade {
 
@@ -23,10 +25,12 @@ public class Facade {
     ProductFactory ingredientsFactory = new ProductFactory();
     CheeseFactory  cheeseFactory = new CheeseFactory();
     Observer ingredientsO = new StorageObserver();
+    Observer insuficientIngredients = new InsuficientStorageObserver();
     Observer cheeses0 = new cheeseStorageObserver();
 
     public Facade() {
         ingredientManager.attach(ingredientsO);
+        ingredientManager.attach(insuficientIngredients);
         cheeseManager.attach(cheeses0);
     }
 
@@ -42,14 +46,15 @@ public class Facade {
                 ingredientManager.addProducts(ingredientsFactory.createYeast(quantity, price, nome));
         }
     }
-    public void removerIngrediente(int index){
-        ingredientManager.removeProducts(index);
+    public void removerIngrediente(String name, int quantity){
+        ingredientManager.removeProducts(name, quantity);
     }
 
     public void listarIngredientes(){
         ingredientManager.listProducts();
         float total = 0;
-        for(Product product: ingredientManager.getListRaw()){
+        for(HashMap.Entry<String, Product> entry : ingredientManager.getListRaw().entrySet()){
+            Product product = entry.getValue();
             total += product.getTotal();
         }
         System.out.println(total);

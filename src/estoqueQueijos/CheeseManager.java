@@ -29,7 +29,7 @@ public class CheeseManager extends Subject {
 
     public void removeCheese(int index) {
         CheeseList.remove(index);
-        if (CheeseList.size() < 2) notifyObservers();
+        if (CheeseList.size() < 2) notifyObservers(0);
     }
 
     public void listCheeses() {
