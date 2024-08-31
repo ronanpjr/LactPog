@@ -55,7 +55,7 @@ public class ProductManager extends Subject {
         }
     }
 
-    public HashMap<String, Product> getListRaw(){
+    public HashMap<String, Product> getHashRaw(){
         return ProductHashMap;
     }
 

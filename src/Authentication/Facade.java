@@ -53,7 +53,7 @@ public class Facade {
     public void listarIngredientes(){
         ingredientManager.listProducts();
         float total = 0;
-        for(HashMap.Entry<String, Product> entry : ingredientManager.getListRaw().entrySet()){
+        for(HashMap.Entry<String, Product> entry : ingredientManager.getHashRaw().entrySet()){
             Product product = entry.getValue();
             total += product.getTotal();
         }
