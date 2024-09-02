@@ -48,7 +48,7 @@ public class Cheese implements Product {
 
     @Override
     public float getTotal() {
-        return quantity * price;
+        return Math.round(this.price * this.quantity * 100.0f) / 100.0f ;
     }
 
     @Override

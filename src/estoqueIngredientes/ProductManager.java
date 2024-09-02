@@ -28,7 +28,7 @@ public class ProductManager extends Subject {
             Product productAuxiliar = ProductHashMap.get(product.getName());
             float oldTotalPrice = productAuxiliar.getTotal();
             productAuxiliar.setQuantity(productAuxiliar.getQuantity() + product.getQuantity());
-            productAuxiliar.setPrice((oldTotalPrice + product.getTotal()) / productAuxiliar.getQuantity());
+            productAuxiliar.setPrice(Math.round((oldTotalPrice + product.getTotal()) / productAuxiliar.getQuantity() * 100.0f) / 100.0f);
         } else {
             ProductHashMap.put(product.getName(), product);
         }

@@ -42,7 +42,7 @@ public class Milk implements Product{
 
     @Override
     public float getTotal() {
-        return this.price * this.quantity;
+        return Math.round(this.price * this.quantity * 100.0f) / 100.0f ;
     }
 
     @Override
