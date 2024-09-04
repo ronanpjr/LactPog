@@ -7,16 +7,16 @@ import Entities.Yeast;
 
 public class ProductFactory {
 
-    public Product createMilk(int quantity, float price, String name) {
-        return new Milk(quantity, price, name);
-    }
+    public Product getProduct(int quantity, float price, String name, String tipo) {
+        if(tipo.equals("Milk"))
+            return new Milk(quantity, price, name);
+        if(tipo.equals("Packaging"))
+            return new Packaging(quantity, price, name);
+        if(tipo.equals("Yeast"))
+            return new Yeast(quantity, price, name);
 
-    public Product createPackaging(int quantity, float price, String name) {
-        return new Packaging(quantity, price, name);
-    }
+        throw new IllegalArgumentException("Tipo de produto desconhecido: " + tipo);
 
-    public Product createYeast(int quantity, float price, String name) {
-        return new Yeast(quantity, price, name);
     }
 }
 

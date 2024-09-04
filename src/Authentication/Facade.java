@@ -35,16 +35,7 @@ public class Facade {
     }
 
     public void adicionarIngrediente(String tipo, String nome, int quantity, float price){
-        switch (tipo){
-            case "Milk":
-                ingredientManager.addProducts(ingredientsFactory.createMilk(quantity, price, nome));
-                break;
-            case "Packaging":
-                ingredientManager.addProducts(ingredientsFactory.createPackaging(quantity, price, nome));
-                break;
-            case "Yeast":
-                ingredientManager.addProducts(ingredientsFactory.createYeast(quantity, price, nome));
-        }
+        ingredientManager.addProducts(ingredientsFactory.getProduct(quantity, price, nome, tipo));
     }
     public void removerIngrediente(String name, int quantity){
         ingredientManager.removeProducts(name, quantity);

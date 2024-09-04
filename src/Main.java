@@ -22,6 +22,7 @@ public class Main {
         fachada.adicionarIngrediente("Milk", "Jussara", 10, 20.0f);
         fachada.adicionarIngrediente("Packaging", "Cheese Packaging", 100, 500.0f);
         fachada.adicionarIngrediente("Milk", "Mococa", 500, 5.0f);
+        fachada.adicionarIngrediente("Yeast", "asdfasdf", 500, 5.0f);
         // fachada.adicionarIngrediente("Milk", "Jussara", 50, 15.0f);
         // fachada.removerIngrediente("Jussara", 60);
         fachada.removerIngrediente("Cheese Packaging", 80);
